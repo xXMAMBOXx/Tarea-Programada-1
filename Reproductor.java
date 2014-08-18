@@ -6,8 +6,8 @@ import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
 
-public class CustomPlayer {
-private Player player;
+public class Reproductor {
+private Player reproducion;
 private FileInputStream FIS;
 private BufferedInputStream BIS;
 private boolean canResume;
@@ -16,8 +16,8 @@ private int total;
 private int stopped;
 private boolean valid;
 
-public CustomPlayer(){
-    player = null;
+public Reproductor(){
+    reproducion = null;
     FIS = null;
     valid = false;
     BIS = null;
@@ -40,10 +40,10 @@ public void setPath(String path){
 public void pause(){
     try{
     stopped = FIS.available();
-    player.close();
+    reproducion.close();
     FIS = null;
     BIS = null;
-    player = null;
+    reproducion = null;
     if(valid) canResume = true;
     }catch(Exception e){
 
@@ -68,12 +68,12 @@ public boolean play(int pos){
     if(pos > -1) FIS.skip(pos);
     BIS = new BufferedInputStream(FIS);
     
-    player = new Player(BIS);
+    reproducion = new Player(BIS);
     new Thread(
             new Runnable(){
                 public void run(){
                     try{
-                        player.play();
+                        reproducion.play();
                         
                     }catch(Exception e){
                         JOptionPane.showMessageDialog(null, "Error en reproducir el mp3");
@@ -89,7 +89,7 @@ public boolean play(int pos){
     return valid;
 }
 public boolean getComplete() throws JavaLayerException{
-return player.isComplete();
+return reproducion.isComplete();
 }
 
 }
