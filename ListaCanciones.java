@@ -16,32 +16,32 @@ public class ListaCanciones {
     private Nodo ultimoNodo;
     private int size;
 
-    /**
-    * La clase Nodo es usada únicamente a nivel interno dentro de la lista
-    * Tiene dos atributos: el dato y el enlace al siguiente nodo
-    *
-    */
-    private class Nodo
+     private class Nodo
     {
 
-        private Object cancion;
+        private Cancion dato;
         private Nodo siguiente;
-        
 
-        public Nodo(Object cancion)
+        public Nodo()
         {
-            this.cancion = cancion;
+            this.dato = null;
             this.siguiente = null;
         }
 
-        public Object obtenerCancion()
+        public Nodo(Cancion inputDato)
         {
-            return cancion;
+            this.dato = inputDato;
+            this.siguiente = null;
         }
 
-        public void establecerCancion(Object cancion)
+        public Cancion obtenerDato()
         {
-            this.cancion = cancion;
+            return dato;
+        }
+
+        public void establecerDato(Cancion dato)
+        {
+            this.dato = dato;
         }
 
         public Nodo obtenerSiguiente()
@@ -54,31 +54,25 @@ public class ListaCanciones {
             this.siguiente = siguiente;
         }
     }
+           
+
 
     public ListaCanciones() {
         primerNodo=null;
         ultimoNodo=null;
         this.size=0;
     }
-    public void agregar(Object cancion)
-    {
-          Nodo nodo = new Nodo(cancion);
-
-        
-        if (this.primerNodo.obtenerCancion() == null)
-        {
-            this.primerNodo = nodo;
-            this.ultimoNodo = nodo;
-        }
-        else
-        {
-            this.ultimoNodo.establecerSiguiente(nodo);
-            this.ultimoNodo = nodo;
-        }   
-
-        this.size++;
-    }
     
+        
+    public void agregar(Cancion i){
+        Nodo nodo=new Nodo(i);
+        primerNodo=nodo;
+        ultimoNodo=nodo;
+        System.out.println(primerNodo.obtenerDato().getTitulo());
+        
+        
+        
+    }
 
     
 }
