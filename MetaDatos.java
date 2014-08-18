@@ -59,6 +59,9 @@ public class MetaDatos
     public int getduracion(){
     return duracion;
     }
+    public double getduracionMin(){
+    return duracion/60;
+    }
     public String getgenero(){
     return this.genero;
     }
