@@ -74,14 +74,21 @@ public class ListaCanciones {
             nodoActual=nodo;
             size++;
         }else{
-            nodoActual.establecerSiguiente(nodo);
+            ultimoNodo.establecerSiguiente(nodo);
             nodoActual=nodo;
             ultimoNodo=nodo;
         }
         
-    //    System.out.println(primerNodo.obtenerDato().getTitulo());
+
+    public void moverAlPrincipio(){
+        nodoActual=nodo;
+    }
+    
+    public void SiguienteNodo(){
+        nodoActual=obtenerSiguiente();
+    }
         
-        
+    
         
     }
 
