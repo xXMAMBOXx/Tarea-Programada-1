@@ -14,6 +14,7 @@ public class ListaCanciones {
     // atributos
     private Nodo primerNodo;
     private Nodo ultimoNodo;
+    private Nodo nodoActual;
     private int size;
 
      private class Nodo
@@ -60,15 +61,25 @@ public class ListaCanciones {
     public ListaCanciones() {
         primerNodo=null;
         ultimoNodo=null;
+        nodoActual=null;
         this.size=0;
     }
     
         
     public void agregar(Cancion i){
         Nodo nodo=new Nodo(i);
-        primerNodo=nodo;
-        ultimoNodo=nodo;
-        System.out.println(primerNodo.obtenerDato().getTitulo());
+        if(primerNodo.obtenerDato()==null){
+            primerNodo=nodo;
+            ultimoNodo=nodo;
+            nodoActual=nodo;
+            size++;
+        }else{
+            nodoActual.establecerSiguiente(nodo);
+            nodoActual=nodo;
+            ultimoNodo=nodo;
+        }
+        
+    //    System.out.println(primerNodo.obtenerDato().getTitulo());
         
         
         
