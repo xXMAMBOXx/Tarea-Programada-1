@@ -10,7 +10,7 @@ package TP1;
 
 
 public class Cancion {
-    String  Nombre,Artista,Album,genero,ruta,rutaI;
+    String  Nombre,Artista,Album,genero,ruta,rutaI=null;
     int duracion;
     
     
@@ -25,11 +25,14 @@ public class Cancion {
         Nombre=datos.getTitulo();
         try{
         datos.guardarImagen();
+        rutaI=datos.getImagen();
         }catch(Exception e){}
     }
 
     
-    
+    public String getImagen(){
+    return this.rutaI;
+    }
     public String getArtista(){
     return this.Artista;
     }

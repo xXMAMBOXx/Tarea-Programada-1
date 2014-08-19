@@ -11,7 +11,7 @@ import org.jaudiotagger.tag.Tag;
 import org.jaudiotagger.tag.images.Artwork;
 public class MetaDatos
 {
-    private String Artista,Album,Titulo,year,BPM,genero,ruta;
+    private String Artista,Album,Titulo,year,BPM,genero,ruta,rutaI;
     private Artwork portada;
     private int duracion;
     Tag tag;
@@ -52,11 +52,15 @@ public class MetaDatos
     try{ 
                InputStream RecibirDatos =new ByteArrayInputStream(portada.getBinaryData());
                BufferedImage bImageFromConvert = ImageIO.read(RecibirDatos);
-                File JPG=new File(Titulo+".jpg");
+                File JPG=new File(ruta+".jpg");
+                rutaI=ruta+".jpg";
                 ImageIO.write(bImageFromConvert,"jpg",JPG);
                 }catch(Exception e){
                 
                 }
+    }
+    public String getImagen(){
+    return this.rutaI;
     }
     public String getArtista(){
     return this.Artista;
