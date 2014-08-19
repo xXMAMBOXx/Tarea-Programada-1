@@ -6,6 +6,8 @@
 
 package TP1;
 
+//import java.io.IOException;
+
 
 public class Cancion {
     String  Nombre,Artista,Album,genero,ruta,rutaI;
@@ -21,8 +23,12 @@ public class Cancion {
         genero=datos.getgenero();
         duracion=datos.getduracion();
         Nombre=datos.getTitulo();
-        
+        try{
+        datos.guardarImagen();
+        }catch(Exception e){}
     }
+
+    
     
     public String getArtista(){
     return this.Artista;

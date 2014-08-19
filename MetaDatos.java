@@ -1,15 +1,18 @@
 
 package TP1;//Librerias de uso
+import java.awt.image.BufferedImage;
 import java.io.*;
+import javax.imageio.ImageIO;
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.audio.AudioFileIO;
 import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.KeyNotFoundException;
 import org.jaudiotagger.tag.Tag;
+import org.jaudiotagger.tag.images.Artwork;
 public class MetaDatos
 {
     private String Artista,Album,Titulo,year,BPM,genero,ruta;
-    
+    private Artwork portada;
     private int duracion;
     Tag tag;
     public MetaDatos(){
@@ -37,13 +40,24 @@ public class MetaDatos
                 year=tag.getFirst(FieldKey.YEAR);
                 genero=tag.getFirst(FieldKey.GENRE);
                  BPM = tag.getFirst(FieldKey.FBPM);
+                 portada=tag.getFirstArtwork();
+                 
         }catch(KeyNotFoundException e){
         
         }
     }
 
 
-
+    public void guardarImagen(){
+    try{ 
+               InputStream RecibirDatos =new ByteArrayInputStream(portada.getBinaryData());
+               BufferedImage bImageFromConvert = ImageIO.read(RecibirDatos);
+                File JPG=new File(Titulo+".jpg");
+                ImageIO.write(bImageFromConvert,"jpg",JPG);
+                }catch(Exception e){
+                
+                }
+    }
     public String getArtista(){
     return this.Artista;
     }
