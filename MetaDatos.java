@@ -1,5 +1,7 @@
 
-package TP1;//Librerias de uso
+//Librerias de uso
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import javax.imageio.ImageIO;
@@ -11,7 +13,7 @@ import org.jaudiotagger.tag.Tag;
 import org.jaudiotagger.tag.images.Artwork;
 public class MetaDatos
 {
-    private String Artista,Album,Titulo,year,BPM,genero,ruta,rutaI;
+    private String Artista,Album,Titulo,year,BPM,genero,ruta,rutaI=null;
     private Artwork portada;
     private int duracion;
     Tag tag;
@@ -35,28 +37,42 @@ public class MetaDatos
 }
          try{
                 Artista=tag.getFirst(FieldKey.ARTIST);
-                Album=tag.getFirst(FieldKey.ALBUM);
-                Titulo=tag.getFirst(FieldKey.TITLE);
-                year=tag.getFirst(FieldKey.YEAR);
-                genero=tag.getFirst(FieldKey.GENRE);
-                 BPM = tag.getFirst(FieldKey.FBPM);
-                 portada=tag.getFirstArtwork();
+                }catch(KeyNotFoundException e){}
+                try{Album=tag.getFirst(FieldKey.ALBUM);
+                }catch(KeyNotFoundException e){}
+                try{Titulo=tag.getFirst(FieldKey.TITLE);
+                }catch(KeyNotFoundException e){}
+                try{year=tag.getFirst(FieldKey.YEAR);
+                }catch(KeyNotFoundException e){}
+                try{genero=tag.getFirst(FieldKey.GENRE);
+                }catch(KeyNotFoundException e){}
+                 try{BPM = tag.getFirst(FieldKey.FBPM);
+                 }catch(KeyNotFoundException e){}
+                 try{portada=tag.getFirstArtwork();
                  
-        }catch(KeyNotFoundException e){
-        
-        }
+        }catch(KeyNotFoundException e){}
     }
 
-
     public void guardarImagen(){
-    try{ 
-               InputStream RecibirDatos =new ByteArrayInputStream(portada.getBinaryData());
-               BufferedImage bImageFromConvert = ImageIO.read(RecibirDatos);
-                File JPG=new File(ruta+".jpg");
+    try{                         
+                InputStream RecibirDatos =new ByteArrayInputStream(portada.getBinaryData());
+                BufferedImage bImageFromConvert = ImageIO.read(RecibirDatos);
+                int w = bImageFromConvert.getWidth();
+                int h = bImageFromConvert.getHeight();
+                BufferedImage bufim = new BufferedImage(300, 300, bImageFromConvert.getType());
+                Graphics2D g = bufim.createGraphics();
+                g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+                g.drawImage(bImageFromConvert, 0, 0, 300, 300, 0, 0, w, h, null);
+                g.dispose();
                 rutaI=ruta+".jpg";
-                ImageIO.write(bImageFromConvert,"jpg",JPG);
-                }catch(Exception e){
+                File JPG=new File(ruta+".jpg");
                 
+                ImageIO.write(bufim,"jpg",JPG);
+                
+                
+        
+                }catch(Exception e){
+                    this.rutaI=null;    
                 }
     }
     public String getImagen(){
