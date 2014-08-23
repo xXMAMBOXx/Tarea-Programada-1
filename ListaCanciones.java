@@ -15,6 +15,7 @@ public class ListaCanciones {
     private Nodo primerNodo;
     private Nodo ultimoNodo;
     private Nodo nodoActual;
+    private Nodo nodoAnterior;
     private int size;
 
      private class Nodo
@@ -22,17 +23,20 @@ public class ListaCanciones {
 
         private Cancion dato;
         private Nodo siguiente;
+        
 
         public Nodo()
         {
             this.dato = null;
             this.siguiente = null;
+           
         }
 
         public Nodo(Cancion inputDato)
         {
             this.dato = inputDato;
             this.siguiente = null;
+           
         }
 
         public Cancion obtenerDato()
@@ -44,16 +48,21 @@ public class ListaCanciones {
         {
             this.dato = dato;
         }
+        
 
         public Nodo obtenerSiguiente()
         {
             return siguiente;
+            
         }
 
         public void establecerSiguiente(Nodo siguiente)
         {
             this.siguiente = siguiente;
         }
+         
+    
+        
     }
            
 
@@ -62,35 +71,53 @@ public class ListaCanciones {
         primerNodo=null;
         ultimoNodo=null;
         nodoActual=null;
+        nodoAnterior=null;
         this.size=0;
     }
     
         
     public void agregar(Cancion i){
         Nodo nodo=new Nodo(i);
-        if(primerNodo.obtenerDato()==null){
+        if(primerNodo==null){
             primerNodo=nodo;
             ultimoNodo=nodo;
             nodoActual=nodo;
+            nodoAnterior=null;
             size++;
         }else{
             ultimoNodo.establecerSiguiente(nodo);
+            nodoAnterior=nodoActual;
             nodoActual=nodo;
             ultimoNodo=nodo;
         }
-        
-
+    }    
     public void moverAlPrincipio(){
-        nodoActual=nodo;
+        nodoActual=primerNodo;
     }
-    
+    public Cancion obtenerCancion(){
+        return nodoActual.obtenerDato();
+    }
     public void SiguienteNodo(){
-        nodoActual=obtenerSiguiente();
+        nodoAnterior=nodoActual;
+        nodoActual=nodoActual.obtenerSiguiente();
+        }
+    public String getArtistas(){
+        String tome="";
+        while(nodoActual.obtenerDato()!=null){
+            tome+=obtenerCancion().getArtista();
+            nodoActual=nodoActual.obtenerSiguiente();
+        }
+        return tome;   
     }
+    public Cancion obteneranterior(){
+         return nodoAnterior.obtenerDato();
+    }
+
+   
         
     
         
     }
 
     
-}
+
