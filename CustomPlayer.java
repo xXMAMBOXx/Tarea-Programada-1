@@ -57,9 +57,7 @@ public void resume(){
     if(!canResume) return;
     if(play(total-stopped)) canResume = false;
 }
-public int getPause(){
-    return stopped;
-}
+
 public boolean play(int pos){
     valid = true;
     canResume = false;
