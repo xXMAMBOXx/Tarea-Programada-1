@@ -62,7 +62,7 @@ class ArrayList {
             ArrayList nueva=new ArrayList(this.max_size);
             int i = 0;
             while(i!=size){
-                if (busca==arreglo[i].getGenero()){
+                if (busca==arreglo[i].getgenero()){
                     nueva.add(arreglo[i]);
                     nueva.size++;     
                 }
@@ -80,6 +80,18 @@ class ArrayList {
             }
             return nueva;
         } 
+         public ArrayList busquedaCancion(String busca){
+            ArrayList nueva=new ArrayList(this.max_size);
+            int i = 0;
+            while(i!=size){
+                if (busca==arreglo[i].getTitulo()){
+                    nueva.add(arreglo[i]);
+                    nueva.size++;     
+                }
+            }
+            return nueva;
+         }
+         
 	@Override
         public String toString(){
             int sizet= 0;
