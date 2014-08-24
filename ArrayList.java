@@ -2,7 +2,6 @@ package TP1;
 
 
 class ArrayList {
-	private int Maxsize;
 	private int size;
 	private int max_size;
 	private Cancion [] arreglo;
@@ -23,7 +22,7 @@ class ArrayList {
 				}
 		}
         
-        
+        /*
 	public void add(Cancion [] pArreglo){//Marvin construya una funcion en las listas enlazadas 
             int contador=0;               //la cual devuelva una lista con las canciones 
             while(contador<pArreglo.length){
@@ -32,33 +31,63 @@ class ArrayList {
             }
 
 	}
+        **/
 	public int getSize(){
 		return this.size;
 		}
 	public int getMax_size(){
 		return this.max_size;
 		}
-	public Cancion getElemento(int indice) throws Exception{//cuando se use este metodo tiene que ir entre un 
-            //try catch
-		if (indice>=this.size){
-			throw new Exception ("El indice es mas grande que el max_size");
-                   // return arreglo[0];//arreglar esto porque no se como arreglarlo
-			}
-		else{
-			return arreglo[indice];
-			}
-		}
-	public int find(Cancion e) throws Exception{
-		if(this.size<=this.max_size){
-			for(int i=0;i<this.size;i++){
-				if(e==arreglo[i]){
-					return i;
-					}
-				}	
-			}
-	//		throw new MiError("No se encontro nada");
-                throw new Exception ("El indice es mas grande que el max_size");
-		}
-		
+	public Cancion getElemento(int indice) throws Exception{ 
+            if(indice>max_size){
+                throw new Exception("Indie mayor");
+            }
+            else{
+                return arreglo[indice];
+            }
+            
+        }
+        public ArrayList busquedaArtista(String busca){
+            ArrayList nueva=new ArrayList(this.max_size);
+            int i = 0;
+            while(i!=size){
+                if (busca==arreglo[i].getArtista()){
+                    nueva.add(arreglo[i]);
+                    nueva.size++;     
+                }
+            }
+            return nueva;
+        }
+	 public ArrayList busquedaGenero(String busca){
+            ArrayList nueva=new ArrayList(this.max_size);
+            int i = 0;
+            while(i!=size){
+                if (busca==arreglo[i].getGenero()){
+                    nueva.add(arreglo[i]);
+                    nueva.size++;     
+                }
+            }
+            return nueva;
+        }
+         public ArrayList busquedaAlbum(String busca){
+            ArrayList nueva=new ArrayList(this.max_size);
+            int i = 0;
+            while(i!=size){
+                if (busca==arreglo[i].getAlbum()){
+                    nueva.add(arreglo[i]);
+                    nueva.size++;     
+                }
+            }
+            return nueva;
+        } 
+	@Override
+        public String toString(){
+            int sizet= 0;
+            while(sizet!=size){
+                System.out.println(this.arreglo[sizet++]);
+                
+            }
+            return "son todos";
+        }
 }	
 	
