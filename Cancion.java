@@ -13,7 +13,7 @@ public class Cancion {
     String  Nombre,Artista,Album,genero,ruta,rutaI=null;
     int duracion;
     
-    
+    CustomPlayer reproducir=new CustomPlayer();
     Cancion(String ruta){
         this.ruta=ruta;
         MetaDatos datos=new MetaDatos();
@@ -55,7 +55,12 @@ public class Cancion {
     this.Artista=m;
     }
     
-    
-    
-    
+    public void PLAY(){
+        reproducir.setPath(this.ruta);
+        reproducir.play(-1);
+    }
+    public void STOP(){
+        reproducir.setPath(this.ruta);
+        reproducir.pause();
+    }
 }
