@@ -7,9 +7,10 @@
 package TP1;
 
 import java.io.File;
+import static java.lang.Thread.sleep;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.stage.FileChooser;
+//import javafx.stage.FileChooser;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -62,6 +63,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jAlbum = new javax.swing.JLabel();
         jGenero = new javax.swing.JLabel();
         jDuracion = new javax.swing.JLabel();
+        Progreso = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(958, 542));
@@ -173,6 +175,8 @@ public class NewJFrame extends javax.swing.JFrame {
         jDuracion.setForeground(new java.awt.Color(240, 240, 240));
         jDuracion.setText(".");
 
+        Progreso.setForeground(new java.awt.Color(255, 255, 51));
+
         javax.swing.GroupLayout VentanaPLayout = new javax.swing.GroupLayout(VentanaP);
         VentanaP.setLayout(VentanaPLayout);
         VentanaPLayout.setHorizontalGroup(
@@ -181,9 +185,12 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(VentanaPLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(VentanaPLayout.createSequentialGroup()
+                                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(VentanaPLayout.createSequentialGroup()
                         .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(VentanaPLayout.createSequentialGroup()
@@ -195,10 +202,9 @@ public class NewJFrame extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(jArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(28, 28, 28)
-                        .addComponent(Mimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(VentanaPLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Progreso, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Mimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                 .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(VentanaPLayout.createSequentialGroup()
@@ -252,7 +258,9 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentanaPLayout.createSequentialGroup()
                                 .addComponent(Mimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(109, 109, 109))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Progreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(84, 84, 84))
                             .addGroup(VentanaPLayout.createSequentialGroup()
                                 .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(VentanaPLayout.createSequentialGroup()
@@ -263,8 +271,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                             .addComponent(Nresultados)
                                             .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(19, 19, 19)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(VentanaPLayout.createSequentialGroup()
                                         .addGap(73, 73, 73)
                                         .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -363,10 +370,19 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_AlbúmActionPerformed
 
     private void ListadeCancionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListadeCancionesMouseClicked
+        try{
         actual.STOP();
+        }catch(Exception e){}
         try {
+             terminar=true;
+              sonar=false;
+              sleep(1000);
             actual=arraycanciones.getElemento(ListadeCanciones.getAnchorSelectionIndex());
+         // System.out.println(ListadeCanciones.getAnchorSelectionIndex());
             llenardatos();
+            terminar=false;
+            sonar=true;
+            Barra();
             actual.PLAY();   
         } catch (Exception ex) {}
         
@@ -398,16 +414,28 @@ public class NewJFrame extends javax.swing.JFrame {
             actual=song;
             llenardatos();
             llenartodos();
+            sonar=true;
+            Barra();
             actual.PLAY();
-            try{if(actual.rutaI.equals("Desconocido")){Mimagen.setIcon(new ImageIcon(actual.rutaI));}
-            }catch(Exception e){}
             return;
+           
         }
         System.out.println(actual.rutaI);
         actual.STOP();
+        terminar=true;
+        try {
+            //sonar=false;
+            sleep(1000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         actual=song;
         llenardatos();
         llenartodos();
+        terminar=false;
+        sonar=true;
+       
+        Barra();
         actual.PLAY();
         try{if(actual.rutaI.equals("Desconocido")){Mimagen.setIcon(new ImageIcon(actual.rutaI));}
             }catch(Exception e){}
@@ -509,6 +537,62 @@ public class NewJFrame extends javax.swing.JFrame {
         Mimagen.setIcon(null);
         }
     }
+    public void Barra(){
+        
+          new Thread(
+            new Runnable(){
+                @SuppressWarnings({"empty-statement", "SleepWhileInLoop"})
+                @Override
+                public void run(){
+                    try{
+                        
+                        double i=0;
+                        int b=0;
+                        int segundos=actual.getduracion();
+                     //Progreso.setValue(0);
+                        while(true){
+                            
+                            while(sonar){
+                                 if (terminar){
+                                 Progreso.setValue(0);
+                                 i=0;
+                                 b=0;
+                                  segundos=actual.getduracion();
+                                 sonar=false;
+                                 return;}
+                               
+                                
+
+                                i= ((b*100)/segundos);//los 252 son segundos cuando logre
+                                b+=1;//sacar la duracion del track en minotos se miltiplica por 60
+                                 Progreso.setValue((int)i);
+                                Thread.sleep(1000);
+                               
+                                 if (i==100){
+                                     i=0;
+                                     b=0;
+                                segundos=actual.getduracion();
+                           Progreso.setValue(0);
+                               sonar=false;
+                          return;
+                           }
+                                
+                            }
+                                return;
+                         
+                       
+                          //eso.setValue(0);
+                        }
+
+                    }catch(Exception e){
+                        JOptionPane.showMessageDialog(null, "Ocurrio un error");
+                    }
+                    
+                }
+            }
+        ).start();
+        
+    }
     public static void main(String args[]) {
         
         
@@ -529,7 +613,8 @@ public class NewJFrame extends javax.swing.JFrame {
     Cancion actual;
  
     boolean sonando=false;
-
+    boolean sonar=false,terminar=false;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;
     private javax.swing.JRadioButton Albúm;
@@ -540,6 +625,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton Modificar;
     private javax.swing.JLabel Ncanciones;
     private javax.swing.JLabel Nresultados;
+    private javax.swing.JProgressBar Progreso;
     private javax.swing.JLabel Result;
     public static javax.swing.ButtonGroup TipoBusqueda;
     private javax.swing.JLabel Titulo;
