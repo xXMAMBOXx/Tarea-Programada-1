@@ -82,15 +82,18 @@ public class ListaCanciones {
             primerNodo=nodo;
             ultimoNodo=nodo;
             nodoActual=nodo;
-            nodoAnterior=null;
-            size++;
+            nodoAnterior=null; 
         }else{
             ultimoNodo.establecerSiguiente(nodo);
             nodoAnterior=nodoActual;
             nodoActual=nodo;
             ultimoNodo=nodo;
         }
-    }    
+        size++;
+    }   
+    public int getsize(){
+        return this.size;
+    }
     public void moverAlPrincipio(){
         nodoActual=primerNodo;
     }
@@ -100,17 +103,34 @@ public class ListaCanciones {
     public void SiguienteNodo(){
         nodoAnterior=nodoActual;
         nodoActual=nodoActual.obtenerSiguiente();
-        }
-    public String getArtistas(){
-        String tome="";
-        while(nodoActual.obtenerDato()!=null){
-            tome+=obtenerCancion().getArtista();
+        
+    }    
+    public ArrayList ListatoArray(){
+        ArrayList artistas=new ArrayList(this.size);
+        int sizet=this.size;
+        this.moverAlPrincipio();
+        while(sizet--!=0){
+            System.out.println(obtenerCancion().getArtista());
+            artistas.add(obtenerCancion());
             nodoActual=nodoActual.obtenerSiguiente();
         }
-        return tome;   
+        nodoActual=primerNodo;
+        return artistas;
+          
     }
     public Cancion obteneranterior(){
          return nodoAnterior.obtenerDato();
+    }
+    public void buscarplay(String nombre){
+        this.moverAlPrincipio();
+        int sizet=this.size;
+        while(sizet!=0){
+            if(nombre==obtenerCancion().Nombre){
+                obtenerCancion().PLAY();
+                return;
+            }
+            nodoActual=nodoActual.obtenerSiguiente();
+        }
     }
 
    
