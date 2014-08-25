@@ -51,10 +51,11 @@ class ArrayList {
             ArrayList nueva=new ArrayList(this.max_size);
             int i = 0;
             while(i!=size){
-                if (busca==arreglo[i].getArtista()){
+                if (busca.equals(arreglo[i].getArtista())){
                     nueva.add(arreglo[i]);
-                    nueva.size++;     
+                       
                 }
+                i++;
             }
             return nueva;
         }
@@ -62,32 +63,35 @@ class ArrayList {
             ArrayList nueva=new ArrayList(this.max_size);
             int i = 0;
             while(i!=size){
-                if (busca==arreglo[i].getgenero()){
-                    nueva.add(arreglo[i]);
-                    nueva.size++;     
+                if (busca.equals(arreglo[i].getgenero())){
+                    nueva.add(arreglo[i]);    
                 }
+                i++;
             }
             return nueva;
         }
          public ArrayList busquedaAlbum(String busca){
+            
             ArrayList nueva=new ArrayList(this.max_size);
             int i = 0;
-            while(i!=size){
-                if (busca==arreglo[i].getAlbum()){
-                    nueva.add(arreglo[i]);
-                    nueva.size++;     
+            while(i!=this.size){
+                if (busca.equals(this.arreglo[i].getAlbum())){
+                    nueva.add(this.arreglo[i]);  
                 }
+                i++;
             }
+            
             return nueva;
         } 
          public ArrayList busquedaCancion(String busca){
             ArrayList nueva=new ArrayList(this.max_size);
             int i = 0;
             while(i!=size){
-                if (busca==arreglo[i].getTitulo()){
+                if (busca.equals(this.arreglo[i].getTitulo())){
                     nueva.add(arreglo[i]);
-                    nueva.size++;     
+                   
                 }
+                i++;
             }
             return nueva;
          }

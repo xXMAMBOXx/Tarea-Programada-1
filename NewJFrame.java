@@ -40,7 +40,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         TipoBusqueda = new javax.swing.ButtonGroup();
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
+        VentanaP = new javax.swing.JPanel();
         Genero = new javax.swing.JRadioButton();
         Albúm = new javax.swing.JRadioButton();
         xbuscar = new javax.swing.JTextField();
@@ -48,12 +48,26 @@ public class NewJFrame extends javax.swing.JFrame {
         ListadeCanciones = new javax.swing.JList();
         Agregar = new javax.swing.JButton();
         Artista = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
         Mimagen = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        Titulo = new javax.swing.JLabel();
+        Modificar = new javax.swing.JButton();
+        Total = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        Ncanciones = new javax.swing.JLabel();
+        Result = new javax.swing.JLabel();
+        Nresultados = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(958, 542));
+        setMinimumSize(new java.awt.Dimension(958, 542));
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        VentanaP.setBackground(new java.awt.Color(0, 102, 102));
+        VentanaP.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        VentanaP.setForeground(new java.awt.Color(255, 255, 255));
+        VentanaP.setMaximumSize(new java.awt.Dimension(958, 542));
+        VentanaP.setMinimumSize(new java.awt.Dimension(958, 542));
+        VentanaP.setName("i-MP3"); // NOI18N
 
         Genero.setBackground(new java.awt.Color(0, 102, 102));
         TipoBusqueda.add(Genero);
@@ -91,6 +105,8 @@ public class NewJFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(ListadeCanciones);
 
         Agregar.setText("Agregar");
+        Agregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, new java.awt.Color(0, 102, 102), new java.awt.Color(0, 102, 102)));
+        Agregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarActionPerformed(evt);
@@ -107,82 +123,133 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton2.setBackground(new java.awt.Color(0, 102, 102));
-        TipoBusqueda.add(jRadioButton2);
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("Artista");
-
         Mimagen.setText(" ");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(125, 125, 125)
-                                .addComponent(Mimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Genero)
-                                    .addComponent(Artista))
-                                .addGap(45, 45, 45)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Albúm)
-                                .addGap(2, 2, 2))
-                            .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(288, 683, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(6, 6, 6))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(xbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Búsqueda :");
+
+        Titulo.setBackground(new java.awt.Color(0, 102, 102));
+        Titulo.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        Titulo.setText("i-MP3");
+
+        Modificar.setText("Modificar");
+        Modificar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, new java.awt.Color(0, 102, 102), new java.awt.Color(0, 102, 102)));
+        Modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        Total.setForeground(new java.awt.Color(255, 255, 255));
+        Total.setText("Total de canciones:");
+
+        Ncanciones.setForeground(new java.awt.Color(255, 255, 255));
+        Ncanciones.setText("0");
+
+        Result.setForeground(new java.awt.Color(255, 255, 255));
+        Result.setText("Resultado(s):");
+
+        Nresultados.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout VentanaPLayout = new javax.swing.GroupLayout(VentanaP);
+        VentanaP.setLayout(VentanaPLayout);
+        VentanaPLayout.setHorizontalGroup(
+            VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentanaPLayout.createSequentialGroup()
+                .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(VentanaPLayout.createSequentialGroup()
+                        .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(VentanaPLayout.createSequentialGroup()
+                                .addGap(327, 327, 327)
+                                .addComponent(Mimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(VentanaPLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentanaPLayout.createSequentialGroup()
+                        .addContainerGap(13, Short.MAX_VALUE)
+                        .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(550, 550, 550))
+                    .addGroup(VentanaPLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(VentanaPLayout.createSequentialGroup()
+                        .addComponent(Result)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Nresultados, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(xbuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(VentanaPLayout.createSequentialGroup()
+                        .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Total)
+                            .addGroup(VentanaPLayout.createSequentialGroup()
+                                .addComponent(Genero)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Artista)))
+                        .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(VentanaPLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(Ncanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                                .addGap(15, 15, 15))
+                            .addGroup(VentanaPLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Albúm, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addGap(10, 10, 10))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        VentanaPLayout.setVerticalGroup(
+            VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VentanaPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Genero, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Albúm))
-                .addGap(13, 13, 13)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Artista)
-                    .addComponent(jRadioButton2))
+                .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(VentanaPLayout.createSequentialGroup()
+                        .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Genero)
+                            .addComponent(Artista)
+                            .addComponent(Albúm))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Total)
+                            .addComponent(jLabel4)
+                            .addComponent(Ncanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(VentanaPLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(VentanaPLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(xbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Result, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Nresultados))))
                 .addGap(18, 18, 18)
-                .addComponent(xbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(VentanaPLayout.createSequentialGroup()
+                        .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addComponent(Mimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(VentanaPLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(124, 124, 124))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Agregar)
-                        .addGap(215, 215, 215))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Mimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(VentanaP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(VentanaP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -201,6 +268,8 @@ public class NewJFrame extends javax.swing.JFrame {
         System.out.println(Lcanciones.obtenerCancion().getgenero());
         DefaultListModel listac=new DefaultListModel();
         arraycanciones=Lcanciones.ListatoArray().busquedaGenero(xbuscar.getText());
+        String total=Integer.toString(arraycanciones.getSize());
+        Nresultados.setText(total);
         while(i!=arraycanciones.getSize()){
             try {
                 nombre=arraycanciones.getElemento(i++).getTitulo();
@@ -226,6 +295,8 @@ public class NewJFrame extends javax.swing.JFrame {
         String nombre=null;
         DefaultListModel listac=new DefaultListModel();
         arraycanciones=Lcanciones.ListatoArray().busquedaAlbum(xbuscar.getText());
+        String total=Integer.toString(arraycanciones.getSize());
+        Nresultados.setText(total);
         while(i!=arraycanciones.getSize()){
             try {
                 nombre=arraycanciones.getElemento(i++).getTitulo();
@@ -269,6 +340,7 @@ public class NewJFrame extends javax.swing.JFrame {
         }
         Cancion song=new Cancion(ruta);
         Lcanciones.agregar(song);
+        establecerTotal();
         if (!sonando){
             sonando=true;
             actual=song;
@@ -291,7 +363,11 @@ public class NewJFrame extends javax.swing.JFrame {
         
      
     }//GEN-LAST:event_AgregarActionPerformed
-
+    public void establecerTotal(){
+        String total=Integer.toString(Lcanciones.getsize());
+        Ncanciones.setText(total);
+    }
+    
     private void ArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArtistaActionPerformed
         if (xbuscar.getText().equals("")||Lcanciones.getsize()==0){
             if (Lcanciones.getsize()!=0){
@@ -305,6 +381,8 @@ public class NewJFrame extends javax.swing.JFrame {
         System.out.println(Lcanciones.obtenerCancion().getgenero());
         DefaultListModel listac=new DefaultListModel();
         arraycanciones=Lcanciones.ListatoArray().busquedaArtista(xbuscar.getText());
+        String total=Integer.toString(arraycanciones.getSize());
+        Nresultados.setText(total);
         while(i!=arraycanciones.getSize()){
             try {
                 nombre=arraycanciones.getElemento(i++).getTitulo();
@@ -331,6 +409,8 @@ public class NewJFrame extends javax.swing.JFrame {
         System.out.println(Lcanciones.obtenerCancion().getgenero());
         DefaultListModel listac=new DefaultListModel();
         arraycanciones=Lcanciones.ListatoArray().busquedaCancion(xbuscar.getText());
+        String total=Integer.toString(arraycanciones.getSize());
+        Nresultados.setText(total);
         while(i!=arraycanciones.getSize()){
             try {
                 nombre=arraycanciones.getElemento(i++).getTitulo();
@@ -344,6 +424,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_xbuscarActionPerformed
 
     public void llenartodos(){
+        Nresultados.setText("");
         int i=0;
         String nombre=null;
         DefaultListModel listac=new DefaultListModel();
@@ -370,13 +451,17 @@ public class NewJFrame extends javax.swing.JFrame {
             public void run() {
                 
                 new NewJFrame().setVisible(true);
+                
+                
             }
         });
-    }
         
+    }
+    
     ListaCanciones Lcanciones=new ListaCanciones();
     ArrayList arraycanciones=new ArrayList(Lcanciones.getsize());
     Cancion actual;
+ 
     boolean sonando=false;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -386,11 +471,19 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton Genero;
     private javax.swing.JList ListadeCanciones;
     private javax.swing.JLabel Mimagen;
+    private javax.swing.JButton Modificar;
+    private javax.swing.JLabel Ncanciones;
+    private javax.swing.JLabel Nresultados;
+    private javax.swing.JLabel Result;
     public static javax.swing.ButtonGroup TipoBusqueda;
+    private javax.swing.JLabel Titulo;
+    private javax.swing.JLabel Total;
+    private javax.swing.JPanel VentanaP;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField xbuscar;
     // End of variables declaration//GEN-END:variables
+
 }

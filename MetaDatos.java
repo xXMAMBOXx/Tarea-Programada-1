@@ -1,4 +1,4 @@
-
+package TP1;
 //Librerias de uso
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -37,14 +37,28 @@ public class MetaDatos
 }
          try{
                 Artista=tag.getFirst(FieldKey.ARTIST);
+                if(Artista.equals("")){
+                        Artista="Desconocido";
+                    }
                 }catch(KeyNotFoundException e){}
-                try{Album=tag.getFirst(FieldKey.ALBUM);
+                try{
+                    Album=tag.getFirst(FieldKey.ALBUM);
+                    if(Album.equals("")){
+                        Album="Desconocido";
+                    }
                 }catch(KeyNotFoundException e){}
                 try{Titulo=tag.getFirst(FieldKey.TITLE);
+                if(Titulo.equals("")){
+                        Titulo="Desconocido";
+                    }
                 }catch(KeyNotFoundException e){}
                 try{year=tag.getFirst(FieldKey.YEAR);
                 }catch(KeyNotFoundException e){}
                 try{genero=tag.getFirst(FieldKey.GENRE);
+                System.out.println(genero);
+                if(genero.equals("")||genero.equals("Género desconocido")){
+                        genero="Desconocido";
+                    }
                 }catch(KeyNotFoundException e){}
                  try{BPM = tag.getFirst(FieldKey.FBPM);
                  }catch(KeyNotFoundException e){}
@@ -65,7 +79,7 @@ public class MetaDatos
                 g.drawImage(bImageFromConvert, 0, 0, 300, 300, 0, 0, w, h, null);
                 g.dispose();
                 rutaI=ruta+".jpg";
-                File JPG=new File(ruta+".jpg");
+                File JPG=new File(rutaI);
                 
                 ImageIO.write(bufim,"jpg",JPG);
                 

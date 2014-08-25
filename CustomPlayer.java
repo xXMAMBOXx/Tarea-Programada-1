@@ -1,3 +1,4 @@
+package TP1;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import javax.swing.JOptionPane;
@@ -57,7 +58,9 @@ public void resume(){
     if(!canResume) return;
     if(play(total-stopped)) canResume = false;
 }
-
+public int getPause(){
+    return stopped;
+}
 public boolean play(int pos){
     valid = true;
     canResume = false;
