@@ -82,14 +82,12 @@ public boolean play(int pos){
                         player.play();
                         
                     }catch(Exception e){
-                        JOptionPane.showMessageDialog(null, "Error en reproducir el mp3");
                         valid = false;
                     }
                 }
             }
     ).start();
     }catch(Exception e){
-        JOptionPane.showMessageDialog(null, "Error en reproducir el mp3");
         valid = false;
     }
     return valid;

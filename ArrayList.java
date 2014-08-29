@@ -22,16 +22,7 @@ class ArrayList {
 				}
 		}
         
-        /*
-	public void add(Cancion [] pArreglo){//Marvin construya una funcion en las listas enlazadas 
-            int contador=0;               //la cual devuelva una lista con las canciones 
-            while(contador<pArreglo.length){
-			this.add(pArreglo[contador]);
-                          contador++;
-            }
-
-	}
-        **/
+        
 	public int getSize(){
 		return this.size;
 		}
@@ -95,7 +86,24 @@ class ArrayList {
             }
             return nueva;
          }
-         
+         public void delete(Cancion x){
+             int i=0;
+             if (this.size==1){
+                 this.size=0;
+                 return;
+             }
+             while(this.size!=i){
+                 System.out.println(arreglo[i].getTitulo());
+                 Cancion temporal;
+                 if (x==arreglo[i]){
+                     temporal=arreglo[i];
+                     arreglo[i]=arreglo[i+1];
+                     arreglo[i+1]=temporal;  
+                 }
+                 i++;
+             }
+            this.size--;
+         }
 	@Override
         public String toString(){
             int sizet= 0;

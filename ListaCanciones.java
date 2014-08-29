@@ -23,6 +23,7 @@ public class ListaCanciones {
 
         private Cancion dato;
         private Nodo siguiente;
+        private Nodo anterior;
         
 
         public Nodo()
@@ -36,6 +37,7 @@ public class ListaCanciones {
         {
             this.dato = inputDato;
             this.siguiente = null;
+            this.anterior=null;
            
         }
 
@@ -94,17 +96,24 @@ public class ListaCanciones {
     public int getsize(){
         return this.size;
     }
+    public void setsize(){
+        if(this.size==0){
+            return;
+        }
+        this.size--;
+    }
     public void moverAlPrincipio(){
         nodoActual=primerNodo;
     }
     public Cancion obtenerCancion(){
         return nodoActual.obtenerDato();
     }
-    public void SiguienteNodo(){
+    public  void SiguienteNodo(){
         nodoAnterior=nodoActual;
         nodoActual=nodoActual.obtenerSiguiente();
         
     }    
+    
     public ArrayList ListatoArray(){
         ArrayList artistas=new ArrayList(this.size);
         int sizet=this.size;
@@ -118,20 +127,28 @@ public class ListaCanciones {
         return artistas;
           
     }
-    public Cancion obteneranterior(){
-         return nodoAnterior.obtenerDato();
-    }
-    public void buscarplay(String nombre){
+    public Cancion getlast(){
         this.moverAlPrincipio();
-        int sizet=this.size;
-        while(sizet!=0){
-            if(nombre==obtenerCancion().Nombre){
-                obtenerCancion().PLAY();
-                return;
-            }
-            nodoActual=nodoActual.obtenerSiguiente();
-        }
+        return this.ultimoNodo.obtenerDato();
     }
+
+    public ListaCanciones eliminar(Cancion x){
+        this.moverAlPrincipio();
+        ListaCanciones temporal=new ListaCanciones();
+        int i=0;
+        while(i!=this.size){
+            System.out.println("es "+this.nodoActual.obtenerDato().getTitulo()+"igual a "+x.getTitulo());
+            if (this.obtenerCancion()!=x){
+                temporal.agregar(this.nodoActual.obtenerDato());}
+            
+                this.SiguienteNodo();
+            i++;
+        }
+        return temporal;
+
+
+    }
+   
 
    
         

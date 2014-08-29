@@ -54,7 +54,15 @@ public class Cancion {
     public void setArtista(String m){
     this.Artista=m;
     }
-    
+    public void setAlbum(String m){
+        this.Album=m;
+    }
+    public void setGenero(String m){
+        this.genero=m;
+    }
+    public void setImage(String ruta){
+        this.rutaI=ruta;
+    }
     public void PLAY(){
         reproducir.setPath(this.ruta);
         reproducir.play(-1);
