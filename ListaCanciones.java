@@ -1,23 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package TP1;
-
-/**
- *
- * @author xXMAMBOXx
- */
 public class ListaCanciones {
-    // atributos
+    /** atributos de la clase lista de canciones*/
     private Nodo primerNodo;
     private Nodo ultimoNodo;
     private Nodo nodoActual;
     private Nodo nodoAnterior;
     private int size;
-
+    /** clase privada Nodo*/
      private class Nodo
     {
 
@@ -25,14 +14,14 @@ public class ListaCanciones {
         private Nodo siguiente;
         private Nodo anterior;
         
-
+        /** Constructor sin parametros */
         public Nodo()
         {
             this.dato = null;
             this.siguiente = null;
            
         }
-
+        /** Constructor con parametro Canción */
         public Nodo(Cancion inputDato)
         {
             this.dato = inputDato;
@@ -40,35 +29,30 @@ public class ListaCanciones {
             this.anterior=null;
            
         }
-
+        /** Devuelve el dato del nodo */
         public Cancion obtenerDato()
         {
             return dato;
         }
-
+        /** Establece el dato del nodo*/
         public void establecerDato(Cancion dato)
         {
             this.dato = dato;
         }
-        
-
+        /** Devuelve el dato del nodo siguiente */
         public Nodo obtenerSiguiente()
         {
-            return siguiente;
-            
+            return siguiente; 
         }
-
+        /** Establece el dato del nodo siguiente */
         public void establecerSiguiente(Nodo siguiente)
         {
             this.siguiente = siguiente;
-        }
-         
-    
-        
+        }    
     }
            
 
-
+    /** Constructor de lista de canciones */
     public ListaCanciones() {
         primerNodo=null;
         ultimoNodo=null;
@@ -76,8 +60,7 @@ public class ListaCanciones {
         nodoAnterior=null;
         this.size=0;
     }
-    
-        
+    /** Agrega un nodo con la canción ingresada por parametro */
     public void agregar(Cancion i){
         Nodo nodo=new Nodo(i);
         if(primerNodo==null){
@@ -92,7 +75,8 @@ public class ListaCanciones {
             ultimoNodo=nodo;
         }
         size++;
-    }   
+    }
+    
     public int getsize(){
         return this.size;
     }
@@ -102,18 +86,20 @@ public class ListaCanciones {
         }
         this.size--;
     }
+    /** Mueve el puntero de nodo actual al principio*/
     public void moverAlPrincipio(){
         nodoActual=primerNodo;
     }
+    /** Obtiene la canción del nodo actual(puntero)*/
     public Cancion obtenerCancion(){
         return nodoActual.obtenerDato();
     }
+    /** Mueve el puntero del nodo actual al siguiente nodo*/
     public  void SiguienteNodo(){
         nodoAnterior=nodoActual;
-        nodoActual=nodoActual.obtenerSiguiente();
-        
+        nodoActual=nodoActual.obtenerSiguiente(); 
     }    
-    
+    /** convierte la lista en un array para presentarlo al usuario*/
     public ArrayList ListatoArray(){
         ArrayList artistas=new ArrayList(this.size);
         int sizet=this.size;
@@ -127,11 +113,8 @@ public class ListaCanciones {
         return artistas;
           
     }
-    public Cancion getlast(){
-        this.moverAlPrincipio();
-        return this.ultimoNodo.obtenerDato();
-    }
-
+    /** Elimina la cancion que el usuario decida
+     */
     public ListaCanciones eliminar(Cancion x){
         this.moverAlPrincipio();
         ListaCanciones temporal=new ListaCanciones();
