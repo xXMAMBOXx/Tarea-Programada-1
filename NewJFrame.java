@@ -485,8 +485,10 @@ public class NewJFrame extends javax.swing.JFrame {
             llenardatos();
             llenartodos(Lcanciones);
             sonar=true;
+            ListadeCanciones.setSelectedIndex(0);
             Barra();
             actual.PLAY();
+            
             return;
            
         }
@@ -607,6 +609,7 @@ public class NewJFrame extends javax.swing.JFrame {
         llenardatos();
         llenartodos(Lcanciones);
         Vaciar();
+        terminar=true;
         establecerTotal();Eliminaredit();
         JOptionPane.showMessageDialog(rootPane,"Se ha eliminado correctamente" );
         return;
@@ -742,11 +745,18 @@ public class NewJFrame extends javax.swing.JFrame {
                                 Thread.sleep(1000);
                                
                                  if (i==100){
-                                     i=0;
+                                          i=0;
                                      b=0;
-                                segundos=actual.getduracion();
-                           Progreso.setValue(0);
-                               sonar=false;
+                                      Progreso.setValue(0);
+                                      sonar=false;
+                                      segundos=actual.getduracion();
+                                ListadeCanciones.setSelectedIndex(ListadeCanciones.getSelectedIndex()+1);
+                                
+                                actual=arraycanciones.getElemento(ListadeCanciones.getSelectedIndex());
+                                llenardatos();
+                                sonar=true;
+                                Barra();
+                                actual.PLAY();
                           return;
                            }
                                 
