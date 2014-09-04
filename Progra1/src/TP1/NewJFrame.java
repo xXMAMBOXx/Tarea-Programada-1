@@ -458,6 +458,7 @@ public class NewJFrame extends javax.swing.JFrame {
         //////////////
         if(ListadeCanciones.isSelectionEmpty()){
         actual.STOP();
+        terminar=true;
         return;
         }
         //////////////
