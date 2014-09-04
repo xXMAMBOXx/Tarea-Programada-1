@@ -5,7 +5,10 @@ import javax.swing.JOptionPane;
 import javazoom.jl.decoder.JavaLayerException;
 
 import javazoom.jl.player.Player;
-
+/**
+ *Reproductor Custom!
+ * @author guillermo
+ */
 
 public class CustomPlayer {
 private Player player;
@@ -16,7 +19,9 @@ private String path;
 private int total;
 private int stopped;
 private boolean valid;
-
+/**
+ *Costructor no necesita parametros
+ */
 public CustomPlayer(){
     player = null;
     FIS = null;
@@ -28,19 +33,30 @@ public CustomPlayer(){
     canResume = false;
     
 }
-
+/**
+ * Determina si la cancion se puede resumir (volver a escuchar) o no
+ */
 public boolean canResume(){
     return canResume;
 }
-
+/**
+ * recibe la ruta de una cancion
+ * @param path 
+ */
 public void setPath(String path){
     this.path = path;
     //JFileChooser seleccionar = new JFileChooser();
 }
+/**
+ * Termina la cancion completamente
+ */
 public void terminar(){
     player.close();
     player=null;
 }
+/**
+ * pausar la cancion
+ */
 public void pause(){
     try{
     stopped = FIS.available();
@@ -54,20 +70,26 @@ public void pause(){
     }
 }
 
-public void resume(){
+
+public void resume(){                                       
     if(!canResume) return;
     if(play(total-stopped)) canResume = false;
 }
 public int getPause(){
     return stopped;
 }
+/**
+ * permite reproducir la cancion dependiendo de los segundos y para empezar se coloca en -1
+ * @param pos
+ * @return 
+ */
 public boolean play(int pos){
     valid = true;
     canResume = false;
     try{
        
         
-    // archivo = seleccionar.getSelectedFile();
+    
     
     FIS = new FileInputStream(path);
     total = FIS.available();
@@ -92,6 +114,11 @@ public boolean play(int pos){
     }
     return valid;
 }
+/**
+ * Determina si la cancion esta completa
+ * @return
+ * @throws JavaLayerException 
+ */
 public boolean getComplete() throws JavaLayerException{
 return player.isComplete();
 }

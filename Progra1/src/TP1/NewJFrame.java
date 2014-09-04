@@ -200,6 +200,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         Martista.setForeground(new java.awt.Color(255, 51, 51));
+        Martista.setText(" ");
         Martista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 MartistaMouseClicked(evt);
@@ -207,6 +208,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         Malbum.setForeground(new java.awt.Color(255, 0, 0));
+        Malbum.setText(" ");
         Malbum.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 MalbumMouseClicked(evt);
@@ -246,19 +248,17 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addGroup(VentanaPLayout.createSequentialGroup()
                         .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(VentanaPLayout.createSequentialGroup()
-                                .addGap(9, 9, 9)
+                                .addGap(59, 59, 59)
                                 .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, VentanaPLayout.createSequentialGroup()
-                                        .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Malbum)
-                                            .addComponent(Martista))
-                                        .addGap(45, 45, 45)
-                                        .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(Mgenero, javax.swing.GroupLayout.Alignment.LEADING)))
+                                    .addComponent(Mgenero)
+                                    .addComponent(Martista)
+                                    .addComponent(Malbum))
+                                .addGap(18, 18, 18)
+                                .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(VentanaPLayout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -266,7 +266,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                     .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(Eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(Modificar, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                         .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentanaPLayout.createSequentialGroup()
                                 .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -287,15 +287,15 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(VentanaPLayout.createSequentialGroup()
                                 .addGap(95, 95, 95)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                                 .addGap(25, 25, 25))
                             .addGroup(VentanaPLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Albúm, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 96, Short.MAX_VALUE))))
+                                .addGap(0, 95, Short.MAX_VALUE))))
                     .addGroup(VentanaPLayout.createSequentialGroup()
                         .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(xbuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                            .addComponent(xbuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
                             .addGroup(VentanaPLayout.createSequentialGroup()
                                 .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(VentanaPLayout.createSequentialGroup()
@@ -304,7 +304,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Result))
-                                .addGap(0, 8, Short.MAX_VALUE)))
+                                .addGap(0, 48, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(VentanaPLayout.createSequentialGroup()
                         .addComponent(Total)
@@ -336,12 +336,8 @@ public class NewJFrame extends javax.swing.JFrame {
                                     .addGroup(VentanaPLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(Mimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(19, 19, 19)
-                                        .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(Progreso, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(VentanaPLayout.createSequentialGroup()
-                                                .addComponent(Martista)
-                                                .addGap(17, 17, 17))))
+                                        .addGap(32, 32, 32)
+                                        .addComponent(Progreso, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(VentanaPLayout.createSequentialGroup()
                                         .addGap(83, 83, 83)
                                         .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -349,19 +345,23 @@ public class NewJFrame extends javax.swing.JFrame {
                                         .addComponent(Eliminar)
                                         .addGap(18, 18, 18)
                                         .addComponent(Modificar)
-                                        .addGap(35, 35, 35)
-                                        .addComponent(jArtista)
+                                        .addGap(34, 34, 34)
+                                        .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jArtista)
+                                            .addComponent(Martista))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jAlbum)
+                                        .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jAlbum)
+                                            .addComponent(Malbum))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jGenero)
+                                        .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jGenero)
+                                            .addComponent(Mgenero))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jDuracion)))
-                                .addGap(18, 18, 18)
-                                .addComponent(Malbum)
-                                .addGap(26, 26, 26)
+                                .addGap(61, 61, 61)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(18, Short.MAX_VALUE))
                     .addGroup(VentanaPLayout.createSequentialGroup()
                         .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Genero)
@@ -377,20 +377,18 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addComponent(xbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Result, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(430, 430, 430)))
-                .addComponent(Mgenero)
-                .addContainerGap(7, Short.MAX_VALUE))
+                        .addContainerGap(560, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(VentanaP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(VentanaP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(VentanaP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(VentanaP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

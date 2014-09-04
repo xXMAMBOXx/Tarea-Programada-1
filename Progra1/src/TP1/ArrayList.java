@@ -1,17 +1,27 @@
 package TP1;
 
-
+/**
+ * Clase de listas basadas en arreglo para el listbox
+ * @author guillermo
+ */
 class ArrayList {
 	private int size;
 	private int max_size;
 	private Cancion [] arreglo;
 	
-	
+	/**
+         * constructor que recibe un tama;o determinado
+         * @param max 
+         */
 	public ArrayList(int max){//Este es el constructor de las listas el max lo tiene que dar la funcion de determine los nodos
 		this.size=0;
 		this.max_size=max;
 		this.arreglo=new Cancion[this.max_size];
 		}
+        /**
+         * agrega una cancion a la lista
+         * @param e 
+         */
 	public void add(Cancion e){//Agregar canciones una por una
 		if(this.size<this.max_size){
 			this.arreglo[this.size]=e;
@@ -22,13 +32,26 @@ class ArrayList {
 				}
 		}
         
-        
+        /**
+         * devuelve el tama;o actual 
+         * @return 
+         */
 	public int getSize(){
 		return this.size;
 		}
+        /**
+         * devuelve el tama;o maximo
+         * @return 
+         */
 	public int getMax_size(){
 		return this.max_size;
 		}
+        /**
+         * devuelve la cancion  de un indice especifico
+         * @param indice
+         * @return
+         * @throws Exception 
+         */
 	public Cancion getElemento(int indice) throws Exception{ 
             if(indice>max_size){
                 throw new Exception("Indie mayor");
@@ -38,6 +61,11 @@ class ArrayList {
             }
             
         }
+        /**
+         * busquedas avanzadas por artista
+         * @param busca
+         * @return lista  por artista
+         */
         public ArrayList busquedaArtista(String busca){
             ArrayList nueva=new ArrayList(this.max_size);
             int i = 0;
@@ -50,6 +78,11 @@ class ArrayList {
             }
             return nueva;
         }
+        /**
+         * busquedas avanzadas por genero
+         * @param busca
+         * @return lista  por genero
+         */
 	 public ArrayList busquedaGenero(String busca){
             ArrayList nueva=new ArrayList(this.max_size);
             int i = 0;
@@ -74,6 +107,11 @@ class ArrayList {
             
             return nueva;
         } 
+         /**
+         * busquedas avanzadas por cancion
+         * @param busca
+         * @return lista  por cancion
+         */
          public ArrayList busquedaCancion(String busca){
             ArrayList nueva=new ArrayList(this.max_size);
             int i = 0;
@@ -86,6 +124,10 @@ class ArrayList {
             }
             return nueva;
          }
+         /**
+          * borra una cancion determinada
+          * @param x 
+          */
          public void delete(Cancion x){
              int i=0;
              if (this.size==1){
