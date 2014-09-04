@@ -22,7 +22,7 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() {
         initComponents();
          TLetra.setEditable(false);
-    
+         //NewJFrame.setResizable( false );
         
     }
     @SuppressWarnings("unchecked")
@@ -65,6 +65,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(958, 542));
+        setResizable(false);
 
         VentanaP.setBackground(new java.awt.Color(0, 102, 102));
         VentanaP.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
@@ -156,23 +157,23 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTitulo.setForeground(new java.awt.Color(240, 240, 240));
-        jTitulo.setText(".");
+        jTitulo.setText(" ");
 
         jArtista.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jArtista.setForeground(new java.awt.Color(240, 240, 240));
-        jArtista.setText(".");
+        jArtista.setText(" ");
 
         jAlbum.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jAlbum.setForeground(new java.awt.Color(240, 240, 240));
-        jAlbum.setText(".");
+        jAlbum.setText(" ");
 
         jGenero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jGenero.setForeground(new java.awt.Color(240, 240, 240));
-        jGenero.setText(".");
+        jGenero.setText(" ");
 
         jDuracion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jDuracion.setForeground(new java.awt.Color(240, 240, 240));
-        jDuracion.setText(".");
+        jDuracion.setText(" ");
 
         Progreso.setBackground(new java.awt.Color(153, 153, 153));
         Progreso.setForeground(new java.awt.Color(0, 102, 102));
@@ -258,7 +259,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                     .addComponent(jArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(VentanaPLayout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addGroup(VentanaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -613,8 +614,12 @@ public class NewJFrame extends javax.swing.JFrame {
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
         ListaCanciones temp=new ListaCanciones();
         if (actual==null){try{
+            JOptionPane.showMessageDialog(rootPane,"Por favor seleccione la cancion que desea borrar");
             return;
-        }catch(Exception e){}
+        }catch(Exception e){
+        JOptionPane.showMessageDialog(rootPane,"Por favor seleccione la cancion que desea borrar");
+        }
+        JOptionPane.showMessageDialog(rootPane,"Por favor seleccione la cancion que desea borrar");
             return;}
         actual.STOP();
         temp=Lcanciones.eliminar(actual);Lcanciones=null;Lcanciones=temp;
@@ -624,6 +629,7 @@ public class NewJFrame extends javax.swing.JFrame {
         terminar=true;
         establecerTotal();Eliminaredit();
         JOptionPane.showMessageDialog(rootPane,"Se ha eliminado correctamente" );
+        TLetra.setText("Letra!");
         return;
     }//GEN-LAST:event_EliminarActionPerformed
 
@@ -640,7 +646,9 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_MtituloMouseClicked
 
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
-        if(actual==null){return;}
+        if(actual==null){
+                JOptionPane.showMessageDialog(rootPane,"Por favor seleccione la cancion que desea modificar");
+                return;}
         JOptionPane.showMessageDialog(null,"Presione editar para modificar lo que desee");
         Mtitulo.setText("Editar");Martista.setText("Editar");Malbum.setText("Editar");Mgenero.setText("Editar");
 
