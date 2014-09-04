@@ -22,7 +22,7 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() {
         initComponents();
          TLetra.setEditable(false);
-         //NewJFrame.setResizable( false );
+         
         
     }
     @SuppressWarnings("unchecked")
@@ -186,7 +186,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        Modificar.setText("Modfificar");
+        Modificar.setText("Modificar");
         Modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ModificarActionPerformed(evt);
@@ -613,7 +613,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
         ListaCanciones temp=new ListaCanciones();
-        if (actual==null){try{
+        if (actual==null||ListadeCanciones.isSelectionEmpty()){try{
             JOptionPane.showMessageDialog(rootPane,"Por favor seleccione la cancion que desea borrar");
             return;
         }catch(Exception e){
@@ -628,8 +628,9 @@ public class NewJFrame extends javax.swing.JFrame {
         Vaciar();
         terminar=true;
         establecerTotal();Eliminaredit();
-        JOptionPane.showMessageDialog(rootPane,"Se ha eliminado correctamente" );
         TLetra.setText("Letra!");
+        JOptionPane.showMessageDialog(rootPane,"Se ha eliminado correctamente" );
+        
         return;
     }//GEN-LAST:event_EliminarActionPerformed
 
@@ -649,7 +650,11 @@ public class NewJFrame extends javax.swing.JFrame {
         if(actual==null){
                 JOptionPane.showMessageDialog(rootPane,"Por favor seleccione la cancion que desea modificar");
                 return;}
-        JOptionPane.showMessageDialog(null,"Presione editar para modificar lo que desee");
+        if(ListadeCanciones.isSelectionEmpty()){
+            JOptionPane.showMessageDialog(rootPane,"Por favor seleccione la cancion que desea modificar");
+            return;
+    }
+        //JOptionPane.showMessageDialog(null,"Presione editar para modificar lo que desee");
         Mtitulo.setText("Editar");Martista.setText("Editar");Malbum.setText("Editar");Mgenero.setText("Editar");
 
          
