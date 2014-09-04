@@ -526,7 +526,13 @@ public class NewJFrame extends javax.swing.JFrame {
         llenartodos(Lcanciones);
         terminar=false;
         sonar=true;
-       
+        //////////
+        try {
+       ListadeCanciones.setSelectedIndex(ListadeCanciones.getSelectedIndex()+1);
+        }catch(Exception e) {
+            ListadeCanciones.setSelectedIndex(0);
+        }
+        /////////
         Barra();
         actual.PLAY();
         try{if(actual.rutaI.equals("Desconocido")){Mimagen.setIcon(new ImageIcon(actual.rutaI));}
