@@ -455,6 +455,12 @@ public class NewJFrame extends javax.swing.JFrame {
         Eliminaredit();if(actual==null&Lcanciones.getsize()==0){
             return;
         }
+        //////////////
+        if(ListadeCanciones.isSelectionEmpty()){
+        actual.STOP();
+        return;
+        }
+        //////////////
         actual.STOP();
         try {
              terminar=true;
